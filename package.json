@@ -1,0 +1,27 @@
+{
+  "name": "vue3-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeHanryang/vue3-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeeHanryang/vue3-practice/issues"
+  },
+  "homepage": "https://github.com/LeeHanryang/vue3-practice#readme",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "vite": "^4.4.9",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {}
+}
