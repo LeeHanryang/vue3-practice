@@ -1,47 +1,46 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+	<div>
+		<h2>반응형</h2>
+		<p>{{ reactiveMessage }}</p>
+		<button v-on:click="addReactiveMesssage">Add message</button>
+		<h2>일반</h2>
+		<p>{{ normalMessage }}</p>
+		<button v-on:click="addNormalMesssage">Add message</button>
+	</div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import { isRef, onUpdated, ref } from 'vue';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+	setup() {
+		// 반응형 상태 선언
+		const reactiveMessage = ref('Reactive Message');
+		// 일반 변수 선언
+		let normalMessage = 'Normal Message';
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+		console.log('isRef(reactiveMessage): ', isRef(reactiveMessage)); // true
+		console.log('isRef(normalMessage): ', isRef(normalMessage)); // false
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+		const addReactiveMesssage = () => {
+			reactiveMessage.value = reactiveMessage.value + '!';
+		};
+		const addNormalMesssage = () => {
+			normalMessage = normalMessage + '!';
+		};
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+		onUpdated(() => {
+			console.log('update component');
+		});
+
+		return {
+			reactiveMessage,
+			normalMessage,
+			addReactiveMesssage,
+			addNormalMesssage,
+		};
+	},
+};
+</script>
+
+<style lang="scss" scoped></style>
