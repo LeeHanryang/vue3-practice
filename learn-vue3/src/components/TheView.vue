@@ -29,7 +29,6 @@
 </template>
 
 <script>
-console.log('App Card Module()');
 import AppCard from '@/components/AppCard.vue';
 
 export default {
@@ -37,7 +36,6 @@ export default {
 		AppCard,
 	},
 	setup() {
-		console.log('App Card Setup()');
 		return {};
 	},
 };
