@@ -1,13 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createApp } from 'vue';
 import App from './App.vue';
-// import AppCard from '@/components/AppCard.vue';
 
-const app = createApp(App).mount('#app');
+const app = createApp(App);
 
-// const app = createApp(App);
-
-// app.component('AppCard', AppCard);
-// app.mount('#app');
+app.provide('app-message', 'app message 입니다.');
+app.provide('msg', 'hello');
+app.config.globalProperties.msg = 'hello';
+app.mount('#app');
 
 import 'bootstrap/dist/js/bootstrap.js';
