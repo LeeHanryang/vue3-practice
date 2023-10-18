@@ -1,34 +1,22 @@
 <template>
-	<div>
-		<label>
-			<!-- v-model="username" -->
-			<!-- <input
-				:value="modelValue"
-				@input="event => $emit('update:modelValue', event.target.value)"
-				type="text"
-			/> -->
-			{{ label }}
-			<input v-model="value" type="text" />
-		</label>
-	</div>
+	<label class="form-label" id="child-id">
+		{{ label }}
+	</label>
+	<input v-model="value" v-bind="$attrs" type="text" class="form-control" />
 </template>
 
 <script>
 import { computed } from 'vue';
 
 export default {
-	// props: ['modelValue', 'label'],
 	props: ['title', 'label'],
-	// emits: ['update:modelValue'],
 	emits: ['update:title'],
 	setup(props, { emit }) {
 		const value = computed({
 			get() {
-				// return props.modelValue;
 				return props.title;
 			},
 			set(value) {
-				// emit('update:modelValue', value);
 				emit('update:title', value);
 			},
 		});
