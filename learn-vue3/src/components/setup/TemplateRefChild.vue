@@ -7,18 +7,22 @@
 	</ul>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue';
 
-const message = ref('Hello ~!');
-const sayHello = () => {
-	console.log(message.value);
-};
+export default {
+	setup() {
+		const message = ref('Hello ~!');
+		const sayHello = () => {
+			console.log(message.value);
+		};
 
-defineExpose({
-	message: message,
-	sayHello,
-});
+		return {
+			message,
+			sayHello,
+		};
+	},
+};
 </script>
 
 <style lang="scss" scoped></style>
